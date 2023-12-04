@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Getter
@@ -12,23 +11,24 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(schema = "db2022108011", name = "post")
-public class Post implements Serializable {
+@Table(schema = "db2022108011", name = "comment")
+public class Comment implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String title;
+    private String name;
+
+    private String email;
 
     private String body;
 
     @ManyToOne
+    @JoinColumn(name = "post_id")
+    private Post post;
+
+    @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    // DONE: List of comments
-    @OneToMany(mappedBy = "post")
-    private List<Comment> comments;
-
 }
