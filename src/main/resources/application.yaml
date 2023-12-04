@@ -3,6 +3,6 @@ spring:
     name: blog
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3307/db
-    username: rey
-    password: senha
+    url: jdbc:mysql://192.168.1.254:3306/db2022108040
+    username: user2022108040
+    password: 2022108040
